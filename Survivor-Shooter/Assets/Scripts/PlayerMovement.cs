@@ -1,10 +1,5 @@
 using UnityEngine;
 
-public static class Tags
-{
-    public static readonly string Player = "Player";
-}
-
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f; 
@@ -21,8 +16,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var findGo = GameObject.FindWithTag(Tags.Player);
-
         var rotation = Quaternion.Euler(0f, input.rotate * rotateSpeed * Time.deltaTime, 0f);
         rb.MoveRotation(rb.rotation * rotation);
 

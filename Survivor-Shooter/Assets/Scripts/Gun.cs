@@ -17,7 +17,7 @@ public class Gun : MonoBehaviour
 
     private void Awake()
     {
-        input = GetComponentInParent<PlayerInput>();
+        input = GetComponentInParent<PlayerInput>();                 //debug
         lightlineRenderer.enabled = false;
         lightlineRenderer.positionCount = 2;
     }
