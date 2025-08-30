@@ -7,14 +7,14 @@ public class FollowCam : MonoBehaviour
     public float offsetY;
     public float offsetZ;
 
-    public float delayTime=1f;
+    public float followSpeed = 10f;
 
     private void Update()
     {
-        Vector3 FixedPos = new Vector3(
+        Vector3 targetPos = new Vector3(
             target.transform.position.x + offsetX,
             target.transform.position.y + offsetY,
             target.transform.position.z + offsetZ);
-        transform.position = Vector3.Lerp(transform.position,FixedPos,Time.deltaTime*delayTime);
+        transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * followSpeed);
     }
 }

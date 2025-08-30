@@ -16,11 +16,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var rotation = Quaternion.Euler(0f, input.rotate * rotateSpeed * Time.deltaTime, 0f);
-        rb.MoveRotation(rb.rotation * rotation);
+        ////player rotate에서만 관리
+        //var rotation = Quaternion.Euler(0f, input.rotate * rotateSpeed * Time.deltaTime, 0f);
+        //rb.MoveRotation(rb.rotation * rotation);
 
         //이동
-        var distance = input.move * moveSpeed * Time.deltaTime;
-        rb.MovePosition(transform.position + distance * transform.forward);
+        Vector3 moveDir = new Vector3(input.moveX, 0f, input.moveZ).normalized;
+        Vector3 worldMove = transform.TransformDirection(moveDir);
+
+        rb.MovePosition(transform.position + worldMove * moveSpeed * Time.deltaTime);
     }
 }

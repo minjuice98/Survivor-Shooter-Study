@@ -8,14 +8,14 @@ public class PlayerInput : MonoBehaviour
     public string horizontalAxis = "Horizontal";
     public string fire = "Fire1";
 
-    public float move { get; private set; }
-    public float rotate { get; private set; }
+    public float moveZ { get; private set; }
+    public float moveX { get; private set; }
     public bool fire1 { get; private set; }
 
     private void Update()
     {
-        move = Input.GetAxis(verticalAxis);
-        rotate = Input.GetAxis(horizontalAxis);
+        moveZ = Input.GetAxis(verticalAxis);
+        moveX = Input.GetAxis(horizontalAxis);
         fire1 = Input.GetButton(fire);
     }
 }
